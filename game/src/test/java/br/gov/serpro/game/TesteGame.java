@@ -8,7 +8,7 @@ public class TesteGame {
 
 	@Test
 	public void registrar10PontosEstrela() {
-		Usuario usuario = new Usuario();
+		Usuario usuario = new Usuario("Guerra");
 		Placar placar = new Placar(usuario);
 		placar.registrarPonto("Estrela", 10);
 		int pontos = placar.RetornaPontos("Estrela");
