@@ -9,9 +9,9 @@ public class TesteGame {
 	@Test
 	public void registrar10PontosEstrela() {
 		Usuario usuario = new Usuario("Guerra");
-		Placar placar = new Placar(usuario);
-		placar.registrarPonto("Estrela", 10);
-		int pontos = placar.RetornaPontos("Estrela");
+		Placar placar = new Placar();
+		placar.registrarPonto(usuario, new Pontos("Estrela", 10));
+		int pontos = placar.RetornaPontos(usuario, "Estrela");
 		assertEquals(10, pontos);
 	}
 }
