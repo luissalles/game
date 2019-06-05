@@ -1,9 +1,14 @@
 package br.gov.serpro.game;
 
 public class Usuario {
+	private String nome;
 	
-	public Usuario(String string) {
-		
+	public Usuario(String nome) {
+		this.nome = nome;
+	}
+
+	public String getNome() {
+		return nome;
 	}
 
 }
