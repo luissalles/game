@@ -15,7 +15,7 @@ public class Placar {
 		this.pontos.setQuantidadePontos(this.pontos.getQuantidadePontos() + pontos.getQuantidadePontos());
 	}
 
-	public int RetornaPontos(Usuario usuario, Pontos pontos) {
+	public int retornaPontos(Usuario usuario, Pontos pontos) {
 		this.usuario = usuario;
 		if(pontos.getTipoPonto() == "Estrela")
 			return pontos.getQuantidadePontos();

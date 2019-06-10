@@ -12,7 +12,7 @@ public class TesteGame {
 		Pontos ponto = new Pontos("Estrela", 0);
 		Placar placar = new Placar(usuario, ponto);
 		placar.registrarPonto(usuario, new Pontos("Estrela", 10));
-		int pontos = placar.RetornaPontos(usuario, ponto);
+		int pontos = placar.retornaPontos(usuario, ponto);
 		assertEquals(10, pontos);
 	}
 }
