@@ -2,17 +2,20 @@ package br.gov.serpro.game;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 public class TesteGame {
 
 	@Test
 	public void registrar10PontosEstrela() {
+		List<Ponto> pontos = new ArrayList<>();
 		Usuario usuario = new Usuario("Guerra");
-		Ponto ponto = new Ponto("Estrela", 0);
-		Placar placar = new Placar(usuario, ponto);
+		Placar placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Estrela", 10));
-		int pontos = placar.retornaPontos(usuario, ponto);
-		assertEquals(10, pontos);
+		int pontosUsuario = placar.retornaPontos(usuario);
+		assertEquals(10, pontosUsuario);
 	}
 }

@@ -1,24 +1,28 @@
 package br.gov.serpro.game;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Placar {
 	private Usuario usuario;
-	private Ponto pontos;
+	private List<Ponto> pontos = new ArrayList<>();
 
 	
-	public Placar(Usuario usuario, Ponto pontos) {
+	public Placar(Usuario usuario) {
 		this.usuario = usuario;
-		this.pontos = pontos;
 	}
 
-	public void registrarPonto(Usuario usuario, Ponto pontos) {
+	public void registrarPonto(Usuario usuario, Ponto ponto) {
 		this.usuario = usuario;
-		this.pontos.setQuantidadePontos(this.pontos.getQuantidadePontos() + pontos.getQuantidadePontos());
+		this.pontos.add(ponto);
 	}
 
-	public int retornaPontos(Usuario usuario, Ponto pontos) {
+	public int retornaPontos(Usuario usuario) {
 		this.usuario = usuario;
-		if(pontos.getTipoPonto() == "Estrela")
-			return pontos.getQuantidadePontos();
+		for(Ponto ponto : pontos) {
+			if(ponto.getTipoPonto().equals("Estrela"))
+				return ponto.getQuantidadePontos();
+		}
 		return 0;
 	}
 
