@@ -17,13 +17,9 @@ public class Placar {
 		this.pontos.add(ponto);
 	}
 
-	public int retornaPontos(Usuario usuario) {
+	public List<Ponto> retornaPontos(Usuario usuario) {
 		this.usuario = usuario;
-		for(Ponto ponto : pontos) {
-			if(ponto.getTipoPonto().equals("Estrela"))
-				return ponto.getQuantidadePontos();
-		}
-		return 0;
+		return this.pontos;
 	}
 
 }

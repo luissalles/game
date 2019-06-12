@@ -15,7 +15,8 @@ public class TesteGame {
 		Usuario usuario = new Usuario("Guerra");
 		Placar placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Estrela", 10));
-		int pontosUsuario = placar.retornaPontos(usuario);
-		assertEquals(10, pontosUsuario);
+		Ponto pontosUsuario = placar.retornaPontos(usuario).get(0);
+		assertEquals(10, pontosUsuario.getQuantidadePontos());
 	}
+	
 }
