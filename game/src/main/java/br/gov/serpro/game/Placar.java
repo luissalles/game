@@ -5,6 +5,11 @@ import java.util.List;
 
 public class Placar {
 	private Usuario usuario;
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
 	private List<Ponto> pontos = new ArrayList<>();
 
 	
