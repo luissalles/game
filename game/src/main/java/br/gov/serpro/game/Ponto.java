@@ -1,10 +1,10 @@
 package br.gov.serpro.game;
 
-public class Pontos {
+public class Ponto {
 	private String tipoPonto;
 	private int quantidadePontos;
 
-	public Pontos(String tipoPonto, int quantidadePontos) {
+	public Ponto(String tipoPonto, int quantidadePontos) {
 		this.tipoPonto = tipoPonto;
 		this.quantidadePontos = quantidadePontos;
 	}
