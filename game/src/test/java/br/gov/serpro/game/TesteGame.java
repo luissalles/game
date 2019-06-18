@@ -2,13 +2,18 @@ package br.gov.serpro.game;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.Test;
 
 public class TesteGame {
 	private Usuario usuario;
+	private List<Usuario> usuarioPlacar;
 	private Ponto pontosUsuario;
 	private String nome;
 	private Placar placar;
+	private List<Placar> pontosUsuarioPlacar;
+	private PlacarGeral placarGeral;
 	private String tipoPonto;
 	private int qtdePontos;
 	
@@ -40,24 +45,42 @@ public class TesteGame {
 	@Test
 	public void retornaRankingPorTipoDePonto() {
 		usuario = new Usuario("Guerra");
+		usuarioPlacar.add(usuario);
 		placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Estrela", 25));
+		pontosUsuarioPlacar.add(placar);
 		placar.registrarPonto(usuario, new Ponto("Moeda", 20));
+		pontosUsuarioPlacar.add(placar);
+
 		usuario = new Usuario("Fernandes");
+		usuarioPlacar.add(usuario);
 		placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Estrela", 19));
+		pontosUsuarioPlacar.add(placar);
 		placar.registrarPonto(usuario, new Ponto("Moeda", 23));
+		pontosUsuarioPlacar.add(placar);
+
 		usuario = new Usuario("Rodrigo");
+		usuarioPlacar.add(usuario);
 		placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Estrela", 17));
+		pontosUsuarioPlacar.add(placar);
 		placar.registrarPonto(usuario, new Ponto("Moeda", 13));
+		pontosUsuarioPlacar.add(placar);
+
 		usuario = new Usuario("Claudio");
+		usuarioPlacar.add(usuario);
 		placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Moeda", 13));
-		nome = placar.getUsuario().getNome().toString();
+		pontosUsuarioPlacar.add(placar);
+		
+		placarGeral = new PlacarGeral(usuarioPlacar, pontosUsuarioPlacar);
+
+		placar = placarGeral.retornaPlacarUsuario().get(0);
 		pontosUsuario = placar.retornaPontos(usuario).get(0);
 		tipoPonto = pontosUsuario.getTipoPonto();
 		qtdePontos = pontosUsuario.getQuantidadePontos();
+		
 		assertEquals("Guerra", nome);
 		assertEquals("Estrela", tipoPonto);
 		assertEquals(25, qtdePontos);
