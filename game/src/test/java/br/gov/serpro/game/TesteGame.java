@@ -2,13 +2,14 @@ package br.gov.serpro.game;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
 public class TesteGame {
 	private Usuario usuario;
-	private List<Usuario> usuarioPlacar;
+	private List<Usuario> usuariosPlacar;
 	private Ponto pontosUsuario;
 	private String nome;
 	private Placar placar;
@@ -45,15 +46,17 @@ public class TesteGame {
 	@Test
 	public void retornaRankingPorTipoDePonto() {
 		usuario = new Usuario("Guerra");
-		usuarioPlacar.add(usuario);
+		usuariosPlacar = new ArrayList<>();
+		usuariosPlacar.add(usuario);
 		placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Estrela", 25));
+		pontosUsuarioPlacar = new ArrayList<>();
 		pontosUsuarioPlacar.add(placar);
 		placar.registrarPonto(usuario, new Ponto("Moeda", 20));
 		pontosUsuarioPlacar.add(placar);
 
 		usuario = new Usuario("Fernandes");
-		usuarioPlacar.add(usuario);
+		usuariosPlacar.add(usuario);
 		placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Estrela", 19));
 		pontosUsuarioPlacar.add(placar);
@@ -61,21 +64,22 @@ public class TesteGame {
 		pontosUsuarioPlacar.add(placar);
 
 		usuario = new Usuario("Rodrigo");
-		usuarioPlacar.add(usuario);
+		usuariosPlacar.add(usuario);
 		placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Estrela", 17));
 		pontosUsuarioPlacar.add(placar);
 		placar.registrarPonto(usuario, new Ponto("Moeda", 13));
 		pontosUsuarioPlacar.add(placar);
 
-		usuario = new Usuario("Claudio");
-		usuarioPlacar.add(usuario);
+		usuario = new Usuario("Toco");
+		usuariosPlacar.add(usuario);
 		placar = new Placar(usuario);
 		placar.registrarPonto(usuario, new Ponto("Moeda", 13));
 		pontosUsuarioPlacar.add(placar);
 		
-		placarGeral = new PlacarGeral(usuarioPlacar, pontosUsuarioPlacar);
+		placarGeral = new PlacarGeral(usuariosPlacar, pontosUsuarioPlacar);
 
+		placar = new Placar();
 		placar = placarGeral.retornaPlacarUsuario().get(0);
 		pontosUsuario = placar.retornaPontos(usuario).get(0);
 		tipoPonto = pontosUsuario.getTipoPonto();
