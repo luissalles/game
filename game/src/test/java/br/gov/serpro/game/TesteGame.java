@@ -79,7 +79,8 @@ public class TesteGame {
 		
 		placarGeral = new PlacarGeral(usuariosPlacar, pontosUsuarioPlacar);
 
-		placar = new Placar();
+		placar = new Placar(usuario);
+		nome = placar.getUsuario().getNome().toString();
 		placar = placarGeral.retornaPlacarUsuario().get(0);
 		pontosUsuario = placar.retornaPontos(usuario).get(0);
 		tipoPonto = pontosUsuario.getTipoPonto();
@@ -88,6 +89,7 @@ public class TesteGame {
 		assertEquals("Guerra", nome);
 		assertEquals("Estrela", tipoPonto);
 		assertEquals(25, qtdePontos);
+
 		nome = placar.getUsuario().getNome().toString();
 		pontosUsuario = placar.retornaPontos(usuario).get(1);
 		tipoPonto = pontosUsuario.getTipoPonto();
